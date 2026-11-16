@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { assetPath } from "../lib/assetPath";
 import { useEffect, useRef, useState } from "react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 
@@ -56,7 +57,7 @@ export default function Header() {
       {/* Official V-TAG logo */}
       <Link href="/" className="brand" aria-label="V-TAG homepage">
         <Image
-          src="/images/vtag-logo.svg"
+          src={assetPath("/images/vtag-logo.svg")}
           alt="V-TAG"
           width={160}
           height={52}

@@ -1,1 +1,47 @@
-import Link from 'next/link';import {ArrowUpRight} from 'lucide-react';import {articles} from '@/lib/content';export const metadata={title:'Articles'};export default function Articles(){return <main><section className="page-hero"><div className="container"><span className="eyebrow light">THE V-TAG JOURNAL</span><h1>IDEAS FOR<br/>THE ROAD AHEAD.</h1><p>Perspectives on ownership, vehicle records and the future of automotive identity.</p></div></section><section className="editorial section-pad"><div className="container"><div className="article-grid">{articles.map((a,i)=><Link className="article-card" key={a.slug} href={'/articles/'+a.slug}><div className={'article-art art-'+i}><span>{String(i+1).padStart(2,'0')}</span><ArrowUpRight size={30}/></div><div className="article-meta">{a.category} · {a.date}</div><h3>{a.title}</h3><p>{a.excerpt}</p></Link>)}</div></div></section></main>}
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import { articles } from "@/lib/content";
+export const metadata = { title: "Articles" };
+export default function Articles() {
+  return (
+    <main>
+      <section className="page-hero">
+        <div className="container">
+          <span className="eyebrow light">THE V-TAG JOURNAL</span>
+          <h1>
+            IDEAS FOR
+            <br />
+            THE ROAD AHEAD.
+          </h1>
+          <p>
+            Perspectives on ownership, vehicle records and the future of
+            automotive identity.
+          </p>
+        </div>
+      </section>
+      <section className="editorial section-pad">
+        <div className="container">
+          <div className="article-grid">
+            {articles.map((a, i) => (
+              <Link
+                className="article-card"
+                key={a.slug}
+                href={"/articles/" + a.slug}
+              >
+                <div className={"article-art art-" + i}>
+                  <span>{String(i + 1).padStart(2, "0")}</span>
+                  <ArrowUpRight size={30} />
+                </div>
+                <div className="article-meta">
+                  {a.category} · {a.date}
+                </div>
+                <h3>{a.title}</h3>
+                <p>{a.excerpt}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}

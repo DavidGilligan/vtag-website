@@ -11,16 +11,17 @@ import {
 } from "lucide-react";
 import { articles } from "@/lib/content";
 import ScrollCue from "@/components/ScrollCue";
+import { assetPath } from "../lib/assetPath";
 
 // Change these extensions if your files are .jpg or .webp.
 const media = {
-  heroTag: "/images/vtag-product1.png",
-  deviceTag: "/images/vtag-product2.png",
-  vehicle: "/images/car-img1.png",
+  heroTag: assetPath("/images/vtag-product1.png"),
+  deviceTag: assetPath("/images/vtag-product2.png"),
+  vehicle: assetPath("/images/car-img1.png"),
   articles: [
-    "/images/articleimg1.jpg",
-    "/images/articleimg2.jpg",
-    "/images/articleimg3.jpg",
+    assetPath("/images/articleimg1.jpg"),
+    assetPath("/images/articleimg2.jpg"),
+    assetPath("/images/articleimg3.jpg"),
   ],
 };
 
