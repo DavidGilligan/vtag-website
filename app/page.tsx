@@ -11,6 +11,9 @@ import {
 } from "lucide-react";
 import { articles } from "@/lib/content";
 import ScrollCue from "@/components/ScrollCue";
+import WhyItMattersVisual from "@/components/WhyItMattersVisual";
+import VideoOnDemand from "@/components/VideoOnDemand";
+import InitialScrollReset from "@/components/InitialScrollReset";
 import { assetPath } from "../lib/assetPath";
 
 // Change these extensions if your files are .jpg or .webp.
@@ -28,6 +31,7 @@ const media = {
 export default function Home() {
   return (
     <main className="vtag-home">
+      <InitialScrollReset />
       <section className="hero hero-v3">
         <div className="hero-atmosphere" aria-hidden="true">
           <div className="halo halo-one" />
@@ -36,26 +40,29 @@ export default function Home() {
         </div>
         <div className="hero-content container">
           <div className="hero-copy">
-            <span className="eyebrow">
-              A CONNECTED IDENTITY FOR EVERY VEHICLE{" "}
-              <span className="eyebrow-line" />
-            </span>
-            <h1>
+            <h1 className="vtag-display-heading">
               EVERY VEHICLE.
               <br />
               <span>HAS A STORY.</span>
             </h1>
-            <p>
-              Know what has happened, what needs attention and what comes next.
-              Keep useful information connected to the vehicle, wherever its
-              journey takes it.
+            <p className="hero-subtitle">
+              A CONNECTED IDENTITY FOR EVERY VEHICLE.
             </p>
+            <p className="hero-description">
+              Every vehicle has a story worth keeping. V-TAG connects its
+              history, important records and what comes next in one place,
+              helping you care for it today and share its story tomorrow.
+            </p>
+            <p className="hero-kicker">BUILT FOR VEHICLES OF EVERY KIND.</p>
             <div className="hero-actions">
-              <Link className="button vtag-primary-button" href="/how-it-works">
-                WHY V-TAG? <ArrowUpRight size={18} />
+              <Link className="button vtag-primary-button" href="/the-vtag">
+                MEET THE DEVICE <ArrowUpRight size={18} />
               </Link>
-              <Link className="text-link device-hover-pill" href="/the-vtag">
-                MEET THE DEVICE <ArrowRight size={17} />
+              <Link
+                className="text-link device-hover-pill"
+                href="/how-it-works"
+              >
+                WHY V-TAG? <ArrowRight size={17} />
               </Link>
             </div>
             <span className="launch-note">
@@ -84,59 +91,60 @@ export default function Home() {
                 className="hero-tag-photo"
               />
             </div>
-            <span className="showcase-label">
-              ONE SMALL TAG. A CONNECTED VEHICLE HISTORY.
-            </span>
           </div>
         </div>
         <div className="hero-bottom container">
-          <span>BUILT FOR VEHICLES OF EVERY KIND.</span>
           <ScrollCue />
         </div>
       </section>
 
       <section className="benefit-strip" aria-label="Why V-TAG matters">
         <div className="container benefit-strip-grid">
-          <div>
-            <ClipboardCheck aria-hidden="true" />
-            <strong>Understand its history.</strong>
-            <span>Keep maintenance, repairs and inspections in context.</span>
+          <div className="benefit-item">
+            <ClipboardCheck className="benefit-icon" aria-hidden="true" />
+            <div className="benefit-text">
+              <strong>Understand its history.</strong>
+              <span>Keep maintenance, repairs and inspections in context.</span>
+            </div>
           </div>
-          <div>
-            <History aria-hidden="true" />
-            <strong>Know what&apos;s next.</strong>
-            <span>
-              See upcoming maintenance, inspections and key milestones.
-            </span>
+          <div className="benefit-item">
+            <History className="benefit-icon" aria-hidden="true" />
+            <div className="benefit-text">
+              <strong>Know what&apos;s next.</strong>
+              <span>See upcoming maintenance, inspections and key milestones.</span>
+            </div>
           </div>
-          <div>
-            <Wallet aria-hidden="true" />
-            <strong>Make handovers easier.</strong>
-            <span>
-              Share a clearer, evidence-led history when ownership changes.
-            </span>
+          <div className="benefit-item">
+            <ShieldCheck className="benefit-icon" aria-hidden="true" />
+            <div className="benefit-text">
+              <strong>Your information stays yours.</strong>
+              <span>Your personal information stays private and is never passed on with the vehicle.</span>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="statement section-pad">
-        <div className="container statement-inner">
-          <span className="eyebrow">01 / WHY IT MATTERS</span>
-          <h2>
-            Vehicles have complex lives.
-            <br />
-            <em>Their histories shouldn&apos;t be.</em>
-          </h2>
-          <p>
-            Whether it is a motorcycle, van, boat, agricultural machine or
-            family car, a vehicle accumulates valuable information over time.
-            V-TAG is being built to connect that information to the vehicle
-            itself, so owners, operators and future buyers can make
-            better-informed decisions.
-          </p>
-          <Link className="underline-link" href="/how-it-works">
-            SEE THE BENEFITS <ArrowUpRight size={18} />
-          </Link>
+      <section className="statement section-pad statement-interactive">
+        <div className="container statement-interactive-layout">
+          <div className="statement-inner statement-interactive-copy">
+            <span className="eyebrow">01 / WHY IT MATTERS</span>
+            <h2>
+              <span className="statement-first-line">Vehicles have complex lives.</span>
+              <br />
+              <em>Their histories shouldn&apos;t be.</em>
+            </h2>
+            <p>
+              Whether it is a motorcycle, van, boat, agricultural machine or
+              family car, a vehicle accumulates valuable information over time.
+              V-TAG is being built to connect that information to the vehicle
+              itself, so owners, operators and future buyers can make
+              better-informed decisions.
+            </p>
+            <Link className="underline-link" href="/how-it-works">
+              SEE THE BENEFITS <ArrowUpRight size={18} />
+            </Link>
+          </div>
+          <WhyItMattersVisual tagSrc={media.heroTag} />
         </div>
       </section>
 
@@ -221,33 +229,16 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="trust section-pad">
+      <section className="trust section-pad community-promise">
         <div className="container trust-layout">
           <div>
-            <span className="eyebrow">
-              04 / BUILT FOR REAL VEHICLE LIFECYCLES
-            </span>
-            <h2>
-              Clarity for
-              <br />
-              every journey.
-            </h2>
+            <span className="eyebrow">04 / BUILT WITH OUR COMMUNITY</span>
+            <h2>Community led.<br /><span>Always and forever.</span></h2>
           </div>
           <div>
-            <p>
-              From workshop repairs to inspections, modifications and changing
-              owners, vehicle information is often fragmented. V-TAG aims to
-              bring useful records together across different vehicle types
-              without presenting an unverified claim as proven fact.
-            </p>
-            <p>
-              Owner-added information and independently supported records should
-              be clearly distinguishable. No digital record can guarantee a
-              vehicle&apos;s condition or value.
-            </p>
-            <Link className="underline-link" href="/how-it-works">
-              HOW TRUST WORKS <ArrowUpRight size={18} />
-            </Link>
+            <p>V-TAG is for everyone who cares about a vehicle, from everyday owners and buyers to petrolheads, collectors, workshops and clubs.</p>
+            <p>We will share our vision, listen to your ideas and put future developments to a community vote. The people using V-TAG should help shape what it becomes.</p>
+            <Link className="underline-link" href="/community">SHAPE WHAT COMES NEXT <ArrowUpRight size={18} /></Link>
           </div>
         </div>
       </section>
@@ -256,16 +247,7 @@ export default function Home() {
         <div className="container">
           <span className="eyebrow">05 / THE BIGGER PICTURE</span>
           <h2>Built for the journey.</h2>
-          <div className="vtag-video-frame">
-            <iframe
-              src="https://www.youtube-nocookie.com/embed/PkYpD54RoDc"
-              title="V-TAG featured video"
-              loading="lazy"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-            />
-          </div>
+          <VideoOnDemand />
         </div>
       </section>
 
@@ -273,7 +255,7 @@ export default function Home() {
         <div className="container">
           <div className="editorial-heading">
             <div>
-              <span className="eyebrow">06 / ARTICLES</span>
+              <span className="eyebrow">05 / ARTICLES</span>
               <h2>For the road ahead.</h2>
             </div>
             <Link className="underline-link" href="/articles">
@@ -312,7 +294,7 @@ export default function Home() {
         <div className="container end-cta-layout">
           <div className="end-cta-copy">
             <span className="eyebrow light">THE ROAD AHEAD</span>
-            <h2>
+            <h2 className="vtag-display-heading">
               EVERY VEHICLE.
               <br />
               ONE IDENTITY.
@@ -335,52 +317,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <style>{`
-        .vtag-home { --vtag-primary: #C1EFA3; --vtag-accent: #87A772; }
-        .vtag-home .hero-v3 .eyebrow, .vtag-home .hero-v3 h1 span, .vtag-home .statement h2 em { color: var(--vtag-accent); }
-        .vtag-home .hero-v3 .hero-grid { background-image: radial-gradient(circle, var(--vtag-accent) 1px, transparent 1.7px); }
-        .vtag-home .vtag-primary-button { background: var(--vtag-primary); color: #202020; border: 1px solid var(--vtag-primary); }
-        .vtag-home .vtag-primary-button:hover { background: var(--vtag-accent); border-color: var(--vtag-accent); }
-        .vtag-home .device-hover-pill { padding: 15px 20px; border: 1px solid transparent; border-radius: 999px; transition: border-color .25s, background .25s, transform .25s; }
-        .vtag-home .device-hover-pill:hover, .vtag-home .device-hover-pill:focus-visible { border-color: var(--vtag-accent); background: rgba(255,255,255,.4); transform: translateY(-2px); }
-        .vtag-home .hero-showcase { isolation: isolate; }
-        .vtag-home .hero-vehicle { position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: .78; }
-        .vtag-home .hero-vehicle-photo { object-fit: contain; object-position: center; }
-        .vtag-home .hero-tag { position: relative; z-index: 2; }
-        .vtag-home .hero-tag-photo { mix-blend-mode: normal; }
-        .vtag-home .showcase-label { z-index: 3; color: var(--vtag-accent); }
-        .vtag-home .benefit-strip-grid strong { font-size: 17.6px; }
-        .vtag-home .benefit-strip-grid span { font-size: 14.3px; }
-        .vtag-home .article-image-wrap { position: relative; padding: 0; }
-        .vtag-home .article-thumbnail { object-fit: cover; transition: transform .5s; }
-        .vtag-home .article-card:hover .article-thumbnail { transform: scale(1.055); }
-        .vtag-home .article-arrow { position: absolute; top: 20px; right: 20px; z-index: 2; color: white; filter: drop-shadow(0 1px 4px rgba(0,0,0,.5)); }
-        .vtag-home .vtag-video-section { background: #f8f8f8; }
-        .vtag-home .vtag-video-section h2 { font-size: clamp(42px,5vw,78px); letter-spacing: -.065em; margin: 25px 0 40px; }
-        .vtag-home .vtag-video-frame { width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 22px; background: #202020; }
-        .vtag-home .vtag-video-frame iframe { width: 100%; height: 100%; border: 0; display: block; }
-        .vtag-home .end-cta { overflow: hidden; }
-        .vtag-home .end-cta-layout { display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 35px; }
-        .vtag-home .end-cta-copy { position: relative; z-index: 2; }
-        .vtag-home .end-cta h2 { font-size: clamp(54px,7vw,115px); }
-        .vtag-home .end-cta-product { display: flex; align-items: center; justify-content: center; min-width: 0; }
-        .vtag-home .end-cta-tag-image { display: block; width: 100%; max-width: 560px; height: auto; object-fit: contain; filter: drop-shadow(0 28px 35px rgba(0,0,0,.3)); }
-        @media (max-width: 800px) {
-          .vtag-home .end-cta-layout { grid-template-columns: 1fr; }
-          .vtag-home .end-cta { padding: 100px 0 0; }
-          .vtag-home .end-cta-product { position: relative; height: 280px; justify-content: flex-start; }
-        }
-        @media (max-width: 540px) {
-          .vtag-home .end-cta-product { height: 250px; }
-          .vtag-home .end-cta-tag-image { position: absolute; width: 85vw; max-width: none; left: 60%; top: 0; }
-          .vtag-home .hero-vehicle { opacity: .55; }
-          .vtag-home .vtag-video-frame { border-radius: 12px; }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .vtag-home .article-thumbnail, .vtag-home .device-hover-pill { transition: none; }
-        }
-      `}</style>
     </main>
   );
 }
